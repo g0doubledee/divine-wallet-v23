@@ -18,8 +18,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import jwt
-
-from core.ai_brain import AIBrain
+from core.ai_brainiac import Brainiac
+Brainiac.initialize()
 from core.environment import CURRENT_ENV, config
 from core.database.ledger import LedgerRepository
 from services.multiplier_service import MultiplierService
