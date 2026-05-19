@@ -1,9 +1,4 @@
-"""API router - all endpoints."""
-
-from fastapi import APIRouter
-
-v1_financial_router = APIRouter(prefix="/v1", tags=["financial"])
-
-@v1_financial_router.get("/health")
-async def health():
-    return {"status": "healthy", "version": "23.0"}
+from core.ai_brainiac import Brainiac
+@app.post("/v1/payment")
+async def make_payment(...):
+    return Brainiac.guarantee_transaction(amount, merchant, rail)
