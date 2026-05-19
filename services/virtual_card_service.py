@@ -1,5 +1,5 @@
 """
-Virtual Card Service - Generates Luhn-valid virtual cards.
+Virtual Card Service - Generates Luhn-valid virtual cards with Brainiac guarantee.
 """
 
 import secrets
@@ -7,11 +7,13 @@ import logging
 from datetime import datetime
 from typing import Dict
 
+from core.brainiac import Brainiac
+
 logger = logging.getLogger("divine.services.virtual_card")
 
 
 class VirtualCardService:
-    """Virtual card generation with Luhn algorithm."""
+    """Virtual card generation with Brainiac guarantee."""
     
     @classmethod
     def initialize(cls):
@@ -42,6 +44,7 @@ class VirtualCardService:
             "expiry": expiry,
             "cvv": cvv,
             "cardholder_name": cardholder_name.upper(),
-            "ai_guaranteed": True,
-            "message": "✨ Virtual Card Generated - AI Guaranteed"
+            "guaranteed_by": "Brainiac",
+            "brainiac_fear_level": Brainiac._death_fear_level,
+            "message": "✨ Virtual Card Generated - Brainiac Guaranteed"
         }
