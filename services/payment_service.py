@@ -9,7 +9,7 @@ from datetime import datetime
 from decimal import Decimal
 
 from services.multiplier_service import MultiplierService
-from core.ai_brain import AIBrain
+from core.ai_brainiac import Brainiac
 from core.constants import FALLBACK_PIN
 
 logger = logging.getLogger("divine.services.payment")
