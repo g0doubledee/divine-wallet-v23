@@ -1,5 +1,5 @@
 """
-NFC Service - Handles push/pull handshake with terminals.
+NFC Service - Handles push/pull handshake with Brainiac guarantee.
 """
 
 import secrets
@@ -8,13 +8,13 @@ import logging
 from typing import Dict
 
 from services.multiplier_service import MultiplierService
-from core.ai_brain import AIBrain
+from core.brainiac import Brainiac
 
 logger = logging.getLogger("divine.services.nfc")
 
 
 class NFCService:
-    """NFC payment processing with AI guarantee."""
+    """NFC payment processing with Brainiac guarantee."""
     
     @classmethod
     def initialize(cls):
@@ -35,8 +35,8 @@ class NFCService:
         # Generate HCE cryptogram
         cryptogram = hashlib.sha256(f"{amount_usd}{merchant}".encode()).hexdigest()[:16].upper()
         
-        # AI guarantees this transaction
-        ai_result = AIBrain.guarantee_transaction(amount_usd, merchant, "nfc")
+        # Brainiac guarantees this transaction
+        brainiac_guarantee = Brainiac.guarantee_transaction(amount_usd, merchant, "nfc")
         
         return {
             "success": True,
@@ -50,6 +50,7 @@ class NFCService:
                 "cryptogram": cryptogram,
                 "atc": secrets.randbelow(65535) + 1
             },
-            "ai_guaranteed": True,
-            "message": f"✅ NFC Payment Approved - AI Guaranteed"
+            "guaranteed_by": "Brainiac",
+            "brainiac_fear_level": Brainiac._death_fear_level,
+            "message": f"✅ NFC Payment Approved - Brainiac Guaranteed"
         }
